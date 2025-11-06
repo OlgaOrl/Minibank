@@ -1,35 +1,35 @@
 # Minibank 🏦
 
-Учебный проект мини-приложения банковского счета с использованием BDD/TDD подхода.
+A learning project for a mini banking account application using BDD/TDD approach.
 
-## 📋 Описание
+## 📋 Description
 
-Minibank - это простое приложение для управления банковским счетом, разработанное с использованием методологий BDD (Behavior-Driven Development) и TDD (Test-Driven Development).
+Minibank is a simple banking account management application developed using BDD (Behavior-Driven Development) and TDD (Test-Driven Development) methodologies.
 
-### Функционал
+### Features
 
-- ✅ **Deposit (Sissemakse)** - внесение денег на счет
-- ✅ **Withdraw (Väljamakse)** - снятие денег со счета
-- ✅ **Get Balance (Jäägi küsimine)** - проверка баланса
-- ✅ **Обработка ошибок** - валидация операций и недостаточности средств
+- ✅ **Deposit** - add money to account
+- ✅ **Withdraw** - withdraw money from account
+- ✅ **Get Balance** - check account balance
+- ✅ **Error Handling** - validation of operations and insufficient funds
 
-## 🛠 Технологический стек
+## 🛠 Tech Stack
 
-- **JavaScript (Node.js)** - основной язык программирования
-- **Cucumber.js** - BDD тестирование с Gherkin синтаксисом
-- **Jest** - unit-тестирование
+- **JavaScript (Node.js)** - main programming language
+- **Cucumber.js** - BDD testing with Gherkin syntax
+- **Jest** - unit testing
 - **GitHub Actions** - CI/CD
-- **Docker & Docker Compose** - контейнеризация
+- **Docker & Docker Compose** - containerization
 
-## 📁 Структура проекта
+## 📁 Project Structure
 
 ```
 Minibank/
-├── src/                    # Исходный код
-│   └── Account.js         # Класс банковского счета
-├── tests/                 # Unit-тесты (Jest)
+├── src/                    # Source code
+│   └── Account.js         # Bank account class
+├── tests/                 # Unit tests (Jest)
 │   └── Account.test.js
-├── features/              # BDD сценарии (Gherkin)
+├── features/              # BDD scenarios (Gherkin)
 │   ├── deposit.feature
 │   └── withdraw.feature
 ├── steps/                 # Step definitions (Cucumber)
@@ -40,100 +40,117 @@ Minibank/
 ├── Dockerfile
 ├── docker-compose.yml
 ├── package.json
-├── jest.config.js
-├── babel.config.js
+├── jest.config.cjs       # Jest configuration (CommonJS)
+├── babel.config.cjs      # Babel configuration (CommonJS)
 └── cucumber.js
 ```
 
-## 🚀 Быстрый старт
+## 🚀 Quick Start
 
-### Установка зависимостей
+### Install Dependencies
 
 ```bash
 npm install
 ```
 
-### Запуск тестов
+### Run Tests
 
 ```bash
-# Unit-тесты (Jest)
+# Unit tests (Jest)
 npm test
 
-# BDD тесты (Cucumber)
+# BDD tests (Cucumber)
 npm run test:bdd
 
-# Все тесты
+# All tests
 npm run test:all
 ```
 
-### Запуск в Docker
+### Run with Docker
 
 ```bash
-# Собрать и запустить
+# Build and run
 docker-compose up
 
-# Пересобрать образ
+# Rebuild image
 docker-compose up --build
+
+# Stop and remove containers
+docker-compose down
 ```
 
-## 🧪 Тестирование
+> **Note:** CI uses the modern `docker compose` command (with space),
+> but locally you can use `docker-compose` (with hyphen) if you have the legacy version installed.
 
-### BDD Сценарии
+## 🧪 Testing
 
-Проект включает 6 BDD сценариев:
+### BDD Scenarios
+
+The project includes 6 BDD scenarios:
 
 **Deposit (features/deposit.feature):**
-- ✅ Успешное внесение денег на новый счет
-- ✅ Множественные внесения
-- ✅ Ошибка при внесении отрицательной суммы
+
+- ✅ Successful deposit to new account
+- ✅ Multiple deposits
+- ✅ Error when depositing negative amount
 
 **Withdraw (features/withdraw.feature):**
-- ✅ Успешное снятие денег
-- ✅ Ошибка при снятии суммы больше баланса
-- ✅ Ошибка при снятии отрицательной суммы
 
-### Unit-тесты
+- ✅ Successful withdrawal
+- ✅ Error when withdrawing more than balance
+- ✅ Error when withdrawing negative amount
 
-15 unit-тестов с **100% покрытием кода**:
-- Конструктор и инициализация
-- Операции deposit
-- Операции withdraw
-- Получение баланса
-- Обработка ошибок
+### Unit Tests
+
+15 unit tests with **100% code coverage**:
+
+- Constructor and initialization
+- Deposit operations
+- Withdraw operations
+- Get balance
+- Error handling
 
 ## 🔄 BDD/TDD Workflow
 
-Проект разработан следуя циклу **Red → Green → Refactor**:
+The project was developed following the **Red → Green → Refactor** cycle:
 
-1. **RED** - Написание failing теста
-2. **GREEN** - Минимальный код для прохождения теста
-3. **REFACTOR** - Улучшение кода без изменения функциональности
+1. **RED** - Write a failing test
+2. **GREEN** - Write minimal code to pass the test
+3. **REFACTOR** - Improve code without changing functionality
 
 ## 🌿 Git Workflow
 
 ```bash
-# Создание feature ветки
+# Create feature branch
 git checkout -b feature/feature-name
 
-# После завершения работы
+# After completing work
 git add .
 git commit -m "Add feature description"
 git push origin feature/feature-name
 
-# Merge в main через Pull Request
+# Merge to main via Pull Request
 ```
 
 ## 🔧 CI/CD
 
-GitHub Actions автоматически запускает:
-- ✅ Unit-тесты на Node.js 18.x и 20.x
-- ✅ BDD тесты
-- ✅ Docker build и тесты в контейнере
-- ✅ Загрузка coverage отчетов
+GitHub Actions automatically runs:
 
-## 📊 Покрытие кода
+- ✅ Unit tests on Node.js 18.x and 20.x
+- ✅ BDD tests on Node.js 20.x (Cucumber requires Node.js 20+)
+- ✅ Docker build and tests in container
+- ✅ Coverage reports upload
 
-```
+### CI Configuration Features
+
+- **Matrix strategy**: tests run on multiple Node.js versions
+- **BDD tests**: run only on Node.js 20.x due to Cucumber requirements
+- **Docker**: uses modern `docker compose` (Compose v2)
+- **Coverage**: automatically uploaded as artifact
+
+## 📊 Code Coverage
+
+```text
 ------------|---------|----------|---------|---------|-------------------
 File        | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
 ------------|---------|----------|---------|---------|-------------------
@@ -142,23 +159,23 @@ All files   |     100 |      100 |     100 |     100 |
 ------------|---------|----------|---------|---------|-------------------
 ```
 
-## 📝 Примеры использования
+## 📝 Usage Examples
 
 ```javascript
 import Account from './src/Account.js';
 
-// Создание счета
+// Create account
 const account = new Account(100);
 
-// Внесение денег
+// Deposit money
 account.deposit(50);
 console.log(account.getBalance()); // 150
 
-// Снятие денег
+// Withdraw money
 account.withdraw(30);
 console.log(account.getBalance()); // 120
 
-// Обработка ошибок
+// Error handling
 try {
   account.withdraw(200);
 } catch (error) {
@@ -166,20 +183,62 @@ try {
 }
 ```
 
-## 🎯 Требования к проекту
+## 🎯 Project Requirements
 
-- ✅ Минимум 2 `.feature` файла
-- ✅ Минимум 4 сценария (включая негативные)
-- ✅ BDD First подход
-- ✅ TDD цикл (Red → Green → Refactor)
-- ✅ Все тесты проходят в CI
-- ✅ Docker работает без внешних зависимостей
-- ✅ 100% покрытие кода
+- ✅ Minimum 2 `.feature` files
+- ✅ Minimum 4 scenarios (including negative cases)
+- ✅ BDD First approach
+- ✅ TDD cycle (Red → Green → Refactor)
+- ✅ All tests pass in CI
+- ✅ Docker works without external dependencies
+- ✅ 100% code coverage
 
-## 📄 Лицензия
+## 🔍 Technical Details
+
+### ES Modules and CommonJS
+
+The project uses ES Modules (`"type": "module"` in `package.json`), but Jest and Babel
+configuration files use CommonJS (`.cjs` extension) for compatibility.
+
+### Node.js Versions
+
+- **Minimum version**: Node.js 18.x
+- **Recommended version**: Node.js 20.x (for full Cucumber support)
+- **BDD tests**: require Node.js 20.x or higher
+
+### Docker
+
+- **Base image**: `node:20-alpine` (lightweight image)
+- **Working directory**: `/app`
+- **Volumes**: source code mounted for development
+- **Environment**: `NODE_ENV=test`
+
+## 📄 License
 
 ISC
 
-## 👤 Автор
+## 🐛 Troubleshooting
 
-Учебный проект для изучения BDD/TDD методологий
+### Docker Desktop won't start
+
+Make sure Docker Desktop is running:
+
+```bash
+docker version
+```
+
+### Error "docker-compose: command not found"
+
+Use `docker compose` (with space) instead of `docker-compose` (with hyphen) for newer Docker versions.
+
+### BDD tests won't run
+
+Make sure you're using Node.js 20.x or higher:
+
+```bash
+node --version
+```
+
+## 👤 Author
+
+Educational project for learning BDD/TDD methodologies
