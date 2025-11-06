@@ -1,0 +1,10 @@
+services:
+  minibank:
+    build: .
+    container_name: minibank-tests
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=test
+
