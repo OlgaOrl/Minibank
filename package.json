@@ -1,0 +1,30 @@
+{
+  "name": "minibank",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:bdd": "cucumber-js features/ --import steps/",
+    "test:all": "npm test && npm run test:bdd"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OlgaOrl/Minibank.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/OlgaOrl/Minibank/issues"
+  },
+  "homepage": "https://github.com/OlgaOrl/Minibank#readme",
+  "devDependencies": {
+    "@babel/core": "^7.28.5",
+    "@babel/preset-env": "^7.28.5",
+    "@cucumber/cucumber": "^12.2.0",
+    "babel-jest": "^30.2.0",
+    "jest": "^30.2.0"
+  }
+}
